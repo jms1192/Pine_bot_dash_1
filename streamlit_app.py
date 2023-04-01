@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import requests
 
 # Set page configuration
@@ -36,18 +37,33 @@ df = pd.DataFrame(data)
 if tab1:
     st.header("Tab 1")
 
-    # Display data as a table
-    st.header("Airdrop Data")
-    st.write(df)
+    # Calculate total airdrop, average airdrop, and total airdrop recipients
+    total_airdrop = df['AIRDROP_VOLUME'].sum()
+    average_airdrop = df['AMOUNT'].mean()
+    total_recipients = df['WALLETS'].sum()
+
+    st.write(f"Total Airdrop: {total_airdrop:,}")
+    st.write(f"Average Airdrop: {average_airdrop:,.2f}")
+    st.write(f"Total Airdrop Recipients: {total_recipients:,}")
 
     # Visualize data
-    st.header("Airdrop Amount Distribution")
-    fig1 = px.pie(df, values="WALLETS", names="AIRDROP_AMOUNT", title="Number of Wallets per Airdrop Amount Range")
-    st.plotly_chart(fig1)
+    st.header("Airdrop Distribution")
 
-    st.header("Airdrop Volume Distribution")
-    fig2 = px.pie(df, values="AIRDROP_VOLUME", names="AIRDROP_AMOUNT", title="Airdrop Volume per Airdrop Amount Range")
-    st.plotly_chart(fig2)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        fig1 = px.pie(df, values='WALLETS', names='AIRDROP_AMOUNT', title='Number of Wallets per Airdrop Amount Range')
+        st.plotly_chart(fig1)
+
+        fig3 = px.bar(df, x='AIRDROP_AMOUNT', y='WALLETS', title='Number of Wallets per Airdrop Amount Range')
+        st.plotly_chart(fig3)
+
+    with col2:
+        fig2 = px.pie(df, values='AIRDROP_VOLUME', names='AIRDROP_AMOUNT', title='Airdrop Volume per Airdrop Amount Range')
+        st.plotly_chart(fig2)
+
+        fig4 = px.bar(df, x='AIRDROP_AMOUNT', y='AIRDROP_VOLUME', title='Airdrop Volume per Airdrop Amount Range')
+        st.plotly_chart(fig4)
 
 elif tab2:
     st.header("Tab 2")
