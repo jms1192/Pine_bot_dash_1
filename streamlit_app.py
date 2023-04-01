@@ -22,4 +22,3 @@ elif tab_selection == "Tab 2":
 else:  # Tab 3
     st.header("Tab 3")
     # Add your content for Tab 3 here
-
