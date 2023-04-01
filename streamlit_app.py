@@ -23,7 +23,7 @@ with st.sidebar.container():
 
 # Content
 if tab1:
-    st.header("Tab 1")
+    st.header("Tab 1da ad d as das dads ")
     # Add your content for Tab 1 here
 elif tab2:
     st.header("Tab 2")
