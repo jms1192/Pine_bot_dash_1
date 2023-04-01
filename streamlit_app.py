@@ -9,13 +9,14 @@ st.set_page_config(
 )
 
 # Title
-st.title("Sample Streamlit App with 3 Tabs")
+st.title("Sample Streamlit App with 3 Full-Width Tabs")
 
 # Tabs
 st.sidebar.title("Tabs")
-tab1 = st.sidebar.button("Tab 1")
-tab2 = st.sidebar.button("Tab 2")
-tab3 = st.sidebar.button("Tab 3")
+col1, col2, col3 = st.sidebar.columns(3)
+tab1 = col1.button("Tab 1")
+tab2 = col2.button("Tab 2")
+tab3 = col3.button("Tab 3")
 
 # Content
 if tab1:
