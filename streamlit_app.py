@@ -13,10 +13,13 @@ st.title("Sample Streamlit App with 3 Full-Width Tabs")
 
 # Tabs
 st.sidebar.title("Tabs")
-col1, col2, col3 = st.sidebar.columns(3)
-tab1 = col1.button("Tab 1")
-tab2 = col2.button("Tab 2")
-tab3 = col3.button("Tab 3")
+
+with st.sidebar.container():
+    tab1 = st.button("Tab 1", key="tab1")
+with st.sidebar.container():
+    tab2 = st.button("Tab 2", key="tab2")
+with st.sidebar.container():
+    tab3 = st.button("Tab 3", key="tab3")
 
 # Content
 if tab1:
