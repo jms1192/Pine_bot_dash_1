@@ -11,14 +11,20 @@ st.set_page_config(
 st.title("Sample Streamlit App with 3 Tabs")
 
 # Tabs
-tab_selection = st.sidebar.selectbox("Choose a tab:", ("Tab 1", "Tab 2", "Tab 3"))
+st.sidebar.title("Tabs")
+tab1 = st.sidebar.button("Tab 1")
+tab2 = st.sidebar.button("Tab 2")
+tab3 = st.sidebar.button("Tab 3")
 
-if tab_selection == "Tab 1":
+# Content
+if tab1:
     st.header("Tab 1")
     # Add your content for Tab 1 here
-elif tab_selection == "Tab 2":
+elif tab2:
     st.header("Tab 2")
     # Add your content for Tab 2 here
-else:  # Tab 3
+elif tab3:
     st.header("Tab 3")
     # Add your content for Tab 3 here
+else:
+    st.header("Select a tab from the sidebar.")
