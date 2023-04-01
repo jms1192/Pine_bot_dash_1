@@ -5,6 +5,7 @@ st.set_page_config(
     page_title="Sample Streamlit App",
     page_icon=":memo:",
     layout="centered",
+    initial_sidebar_state="expanded",
 )
 
 # Title
