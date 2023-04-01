@@ -15,7 +15,7 @@ st.title("Sample Streamlit App with 3 Full-Width Tabs")
 st.sidebar.title("Tabs")
 
 with st.sidebar.container():
-    tab1 = st.button("Tab 1", key="tab1")
+    tab1 = st.button("Tab 1 dasd asd as", key="tab1")
 with st.sidebar.container():
     tab2 = st.button("Tab 2", key="tab2")
 with st.sidebar.container():
